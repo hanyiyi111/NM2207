@@ -1,0 +1,13 @@
+---
+title: "Data Document"
+author: "HAN YIYI"
+date: "2023-10-20"
+output: html_document
+---
+
+### (1) Topic: Online Learning Trends
+
+Analyze data related to the growth of online education and the impact of remote learning on education.
+
+### (2) Data Sources: 
+Coursera, edX, Khan Academy, the U.S. Department of Education's National Center for Education Statistics (NCES), etc.

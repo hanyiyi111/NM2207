@@ -1,0 +1,754 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Challenge-3},
+  pdfauthor={HAN YIYI},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Challenge-3}
+\author{HAN YIYI}
+\date{30/8/2023}
+
+\begin{document}
+\maketitle
+
+\hypertarget{i.-questions}{%
+\subsection{I. Questions}\label{i.-questions}}
+
+\hypertarget{question-1-emoji-expressions}{%
+\paragraph{Question 1: Emoji
+Expressions}\label{question-1-emoji-expressions}}
+
+Imagine you're analyzing social media posts for sentiment analysis. If
+you were to create a variable named ``postSentiment'' to store the
+sentiment of a post using emojis (😄 for positive, 😐 for neutral, 😢
+for negative), what data type would you assign to this variable? Why?
+(\emph{narrative type question, no code required})
+
+\textbf{Solution:} \emph{Character (string of alphabets). Because this
+is a categoric variable and it is ordinal. The three sentiments have
+natural ordering.}
+
+\hypertarget{question-2-hashtag-havoc}{%
+\paragraph{Question 2: Hashtag Havoc}\label{question-2-hashtag-havoc}}
+
+In a study on trending hashtags, you want to store the list of hashtags
+associated with a post. What data type would you choose for the variable
+``postHashtags''? How might this data type help you analyze and
+categorize the hashtags later? (\emph{narrative type question, no code
+required})
+
+\textbf{Solution:} \emph{Character (string of alphabets). We can get the
+number of selected hashtags by counting how many entries they have. }
+
+\hypertarget{question-3-time-travelers-log}{%
+\paragraph{Question 3: Time Traveler's
+Log}\label{question-3-time-travelers-log}}
+
+You're examining the timing of user interactions on a website. Would you
+use a numeric or non-numeric data type to represent the timestamp of
+each interaction? Explain your choice (\emph{narrative type question, no
+code required})
+
+\textbf{Solution:} \emph{I would use a numeric data type because we can
+use numbers to indicate time.}
+
+\hypertarget{question-4-event-elegance}{%
+\paragraph{Question 4: Event Elegance}\label{question-4-event-elegance}}
+
+You're managing an event database that includes the date and time of
+each session. What data type(s) would you use to represent the session
+date and time? (\emph{narrative type question, no code required})
+
+\textbf{Solution:} \emph{Character (string of numbers)}
+
+\hypertarget{question-5-nominee-nominations}{%
+\paragraph{Question 5: Nominee
+Nominations}\label{question-5-nominee-nominations}}
+
+You're analyzing nominations for an online award. Each participant can
+nominate multiple candidates. What data type would be suitable for
+storing the list of nominated candidates for each participant?
+(\emph{narrative type question, no code required})
+
+\textbf{Solution:} \emph{Character (string of alphabets)}
+
+\hypertarget{question-6-communication-channels}{%
+\paragraph{Question 6: Communication
+Channels}\label{question-6-communication-channels}}
+
+In a survey about preferred communication channels, respondents choose
+from options like ``email,'' ``phone,'' or ``social media.'' What data
+type would you assign to the variable ``preferredChannel''?
+(\emph{narrative type question, no code required})
+
+\textbf{Solution:} \emph{Character (string of alphabets)}
+
+\hypertarget{question-7-colorful-commentary}{%
+\paragraph{Question 7: Colorful
+Commentary}\label{question-7-colorful-commentary}}
+
+In a design feedback survey, participants are asked to describe their
+feelings about a website using color names (e.g., ``warm red,'' ``cool
+blue''). What data type would you choose for the variable
+``feedbackColor''? (\emph{narrative type question, no code required})
+
+\textbf{Solution:} \emph{Character (string of alphabets)}
+
+\hypertarget{question-8-variable-exploration}{%
+\paragraph{Question 8: Variable
+Exploration}\label{question-8-variable-exploration}}
+
+Imagine you're conducting a study on social media usage. Identify three
+variables related to this study, and specify their data types in R.
+Classify each variable as either numeric or non-numeric.
+
+\textbf{Solution:} \emph{1.''PreferredPlatform'',non-numeric,character;
+2.''Gender'',non-numeric,character;
+3.''DailyHoursOfUsage'',numeric,double.}
+
+\hypertarget{question-9-vector-variety}{%
+\paragraph{Question 9: Vector Variety}\label{question-9-vector-variety}}
+
+Create a numeric vector named ``ages'' containing the ages of five
+people: 25, 30, 22, 28, and 33. Print the vector.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{ages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{25}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{22}\NormalTok{,}\DecValTok{28}\NormalTok{,}\DecValTok{33}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(ages)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 25 30 22 28 33
+\end{verbatim}
+
+\hypertarget{question-10-list-logic}{%
+\paragraph{Question 10: List Logic}\label{question-10-list-logic}}
+
+Construct a list named ``student\_info'' that contains the following
+elements:
+
+\begin{itemize}
+\item
+  A character vector of student names: ``Alice,'' ``Bob,'' ``Catherine''
+\item
+  A numeric vector of their respective scores: 85, 92, 78
+\item
+  A logical vector indicating if they passed the exam: TRUE, TRUE, FALSE
+\end{itemize}
+
+Print the list.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{student\_info }\OtherTok{=} \FunctionTok{list}\NormalTok{(}\AttributeTok{name=}\FunctionTok{c}\NormalTok{(}\StringTok{"Alice"}\NormalTok{,}\StringTok{"Bob"}\NormalTok{,}\StringTok{"Catherine"}\NormalTok{), }\AttributeTok{score=}\FunctionTok{c}\NormalTok{(}\DecValTok{85}\NormalTok{,}\DecValTok{92}\NormalTok{,}\DecValTok{78}\NormalTok{), }\AttributeTok{passed.the.exam=}\FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{,}\ConstantTok{TRUE}\NormalTok{,}\ConstantTok{FALSE}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(student\_info)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $name
+## [1] "Alice"     "Bob"       "Catherine"
+## 
+## $score
+## [1] 85 92 78
+## 
+## $passed.the.exam
+## [1]  TRUE  TRUE FALSE
+\end{verbatim}
+
+\hypertarget{question-11-type-tracking}{%
+\paragraph{Question 11: Type Tracking}\label{question-11-type-tracking}}
+
+You have a vector ``data'' containing the values 10, 15.5, ``20'', and
+TRUE. Determine the data types of each element using the typeof()
+function.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\FunctionTok{typeof}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{15.5}\NormalTok{)}
+\FunctionTok{typeof}\NormalTok{(b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"20"}\NormalTok{)}
+\FunctionTok{typeof}\NormalTok{(c)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{typeof}\NormalTok{(d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "logical"
+\end{verbatim}
+
+\hypertarget{question-12-coercion-chronicles}{%
+\paragraph{Question 12: Coercion
+Chronicles}\label{question-12-coercion-chronicles}}
+
+You have a numeric vector ``prices'' with values 20.5, 15, and ``25''.
+Use explicit coercion to convert the last element to a numeric data
+type. Print the updated vector.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{prices }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{20.5}\NormalTok{,}\DecValTok{15}\NormalTok{,}\StringTok{"25"}\NormalTok{)}
+\NormalTok{prices }\OtherTok{\textless{}{-}} \FunctionTok{as.double}\NormalTok{(prices)}
+\FunctionTok{typeof}\NormalTok{(prices)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(prices)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20.5 15.0 25.0
+\end{verbatim}
+
+\hypertarget{question-13-implicit-intuition}{%
+\paragraph{Question 13: Implicit
+Intuition}\label{question-13-implicit-intuition}}
+
+Combine the numeric vector c(5, 10, 15) with the character vector
+c(``apple'', ``banana'', ``cherry''). What happens to the data types of
+the combined vector? Explain the concept of implicit coercion.
+
+\textbf{Solution:} \emph{When different types of vectors are combined, R
+will automatically convert the vector to accommodate all element types
+based on the content.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{15}\NormalTok{)}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(x,}\StringTok{"apple"}\NormalTok{,}\StringTok{"banana"}\NormalTok{,}\StringTok{"cherry"}\NormalTok{)}
+\FunctionTok{typeof}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\hypertarget{question-14-coercion-challenges}{%
+\paragraph{Question 14: Coercion
+Challenges}\label{question-14-coercion-challenges}}
+
+You have a vector ``numbers'' with values 7, 12.5, and ``15.7''.
+Calculate the sum of these numbers. Will R automatically handle the data
+type conversion? If not, how would you handle it?
+
+\textbf{Solution:} R will turn convert double vector into character. I
+would explicitly coerce the vector to be double.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{numbers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{7}\NormalTok{,}\FloatTok{12.5}\NormalTok{)}
+\NormalTok{numbers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(numbers,}\StringTok{"15.7"}\NormalTok{)}
+\FunctionTok{typeof}\NormalTok{(numbers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{numbers }\OtherTok{\textless{}{-}} \FunctionTok{as.double}\NormalTok{(numbers)}
+\FunctionTok{typeof}\NormalTok{(numbers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(numbers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 35.2
+\end{verbatim}
+
+\hypertarget{question-15-coercion-consequences}{%
+\paragraph{Question 15: Coercion
+Consequences}\label{question-15-coercion-consequences}}
+
+Suppose you want to calculate the average of a vector ``grades'' with
+values 85, 90.5, and ``75.2''. If you directly calculate the mean using
+the mean() function, what result do you expect? How might you ensure
+accurate calculation?
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{grades }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{85}\NormalTok{,}\FloatTok{90.5}\NormalTok{)}
+\NormalTok{grades }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(grades,}\StringTok{"75.2"}\NormalTok{)}
+\NormalTok{grades }\OtherTok{\textless{}{-}} \FunctionTok{as.double}\NormalTok{(grades)}
+\FunctionTok{mean}\NormalTok{(grades)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 83.56667
+\end{verbatim}
+
+\hypertarget{question-16-data-diversity-in-lists}{%
+\paragraph{Question 16: Data Diversity in
+Lists}\label{question-16-data-diversity-in-lists}}
+
+Create a list named ``mixed\_data'' with the following components:
+
+\begin{itemize}
+\item
+  A numeric vector: 10, 20, 30
+\item
+  A character vector: ``red'', ``green'', ``blue''
+\item
+  A logical vector: TRUE, FALSE, TRUE
+\end{itemize}
+
+Calculate the mean of the numeric vector within the list.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{mixed\_data }\OtherTok{=} \FunctionTok{list}\NormalTok{(}\AttributeTok{numeric=}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{,}\DecValTok{30}\NormalTok{), }\AttributeTok{character=}\FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{,}\StringTok{"green"}\NormalTok{,}\StringTok{"blue"}\NormalTok{), }\AttributeTok{logical=}\FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{,}\ConstantTok{FALSE}\NormalTok{,}\ConstantTok{TRUE}\NormalTok{))}
+\NormalTok{mixed\_data}\SpecialCharTok{$}\NormalTok{numeric}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10 20 30
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(mixed\_data}\SpecialCharTok{$}\NormalTok{numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20
+\end{verbatim}
+
+\hypertarget{question-17-list-logic-follow-up}{%
+\paragraph{Question 17: List Logic
+Follow-up}\label{question-17-list-logic-follow-up}}
+
+Using the ``student\_info'' list from Question 10, extract and print the
+score of the student named ``Bob.''
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{student\_info}\SpecialCharTok{$}\NormalTok{score[student\_info}\SpecialCharTok{$}\NormalTok{name}\SpecialCharTok{==}\StringTok{"Bob"}\NormalTok{]  }\CommentTok{\# \textless{}{-}{-} pipe operator}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 92
+\end{verbatim}
+
+\hypertarget{question-18-dynamic-access}{%
+\paragraph{Question 18: Dynamic
+Access}\label{question-18-dynamic-access}}
+
+Create a numeric vector values with random values. Write R code to
+dynamically access and print the last element of the vector, regardless
+of its length.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{x}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{6}\NormalTok{)}
+\NormalTok{x[}\FunctionTok{length}\NormalTok{(x)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6
+\end{verbatim}
+
+\hypertarget{question-19-multiple-matches}{%
+\paragraph{Question 19: Multiple
+Matches}\label{question-19-multiple-matches}}
+
+You have a character vector words \textless- c(``apple'', ``banana'',
+``cherry'', ``apple''). Write R code to find and print the indices of
+all occurrences of the word ``apple.''
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{words }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{,}\StringTok{"banana"}\NormalTok{,}\StringTok{"cherry"}\NormalTok{,}\StringTok{"apple"}\NormalTok{)}
+\NormalTok{words }\SpecialCharTok{==} \StringTok{"apple"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE FALSE FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which}\NormalTok{(words }\SpecialCharTok{==} \StringTok{"apple"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 4
+\end{verbatim}
+
+\hypertarget{question-20-conditional-capture}{%
+\paragraph{Question 20: Conditional
+Capture}\label{question-20-conditional-capture}}
+
+Assume you have a vector ages containing the ages of individuals. Write
+R code to extract and print the ages of individuals who are older than
+30.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+
+\NormalTok{ages[ages}\SpecialCharTok{\textgreater{}}\DecValTok{30}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 33
+\end{verbatim}
+
+\hypertarget{question-21-extract-every-nth}{%
+\paragraph{Question 21: Extract Every
+Nth}\label{question-21-extract-every-nth}}
+
+Given a numeric vector sequence \textless- 1:20, write R code to extract
+and print every third element of the vector.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{x}\OtherTok{\textless{}{-}}\FunctionTok{seq}\NormalTok{(}\AttributeTok{from=}\DecValTok{1}\NormalTok{,}\AttributeTok{to=}\DecValTok{20}\NormalTok{,}\AttributeTok{by=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1  4  7 10 13 16 19
+\end{verbatim}
+
+\hypertarget{question-22-range-retrieval}{%
+\paragraph{Question 22: Range
+Retrieval}\label{question-22-range-retrieval}}
+
+Create a numeric vector numbers with values from 1 to 10. Write R code
+to extract and print the values between the fourth and eighth elements.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{10}\NormalTok{)}
+\NormalTok{x[}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{8}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4 8
+\end{verbatim}
+
+\hypertarget{question-23-missing-matters}{%
+\paragraph{Question 23: Missing
+Matters}\label{question-23-missing-matters}}
+
+Suppose you have a numeric vector data \textless- c(10, NA, 15, 20).
+Write R code to check if the second element of the vector is missing
+(NA).
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{x}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\ConstantTok{NA}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{20}\NormalTok{)}
+\NormalTok{x[}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\hypertarget{question-24-temperature-extremes}{%
+\paragraph{Question 24: Temperature
+Extremes}\label{question-24-temperature-extremes}}
+
+Assume you have a numeric vector temperatures with daily temperatures.
+Create a logical vector hot\_days that flags days with temperatures
+above 90 degrees Fahrenheit. Print the total number of hot days.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{temperatures}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{85}\NormalTok{,}\DecValTok{88}\NormalTok{,}\DecValTok{91}\NormalTok{,}\DecValTok{93}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{98}\NormalTok{,}\DecValTok{85}\NormalTok{,}\DecValTok{92}\NormalTok{)}
+\NormalTok{hot\_days}\OtherTok{\textless{}{-}}\NormalTok{temperatures}\SpecialCharTok{\textgreater{}}\DecValTok{90}
+\NormalTok{hot\_days}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(hot\_days)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\hypertarget{question-25-string-selection}{%
+\paragraph{Question 25: String
+Selection}\label{question-25-string-selection}}
+
+Given a character vector fruits containing fruit names, create a logical
+vector long\_names that identifies fruits with names longer than 6
+characters. Print the long fruit names.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{fruits }\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{,}\StringTok{"strawberry"}\NormalTok{,}\StringTok{"blueberry"}\NormalTok{,}\StringTok{"banana"}\NormalTok{)}
+\NormalTok{long\_fruit\_names}\OtherTok{\textless{}{-}}\NormalTok{fruits[}\FunctionTok{nchar}\NormalTok{(fruits)}\SpecialCharTok{\textgreater{}}\DecValTok{6}\NormalTok{]}
+\FunctionTok{print}\NormalTok{(long\_fruit\_names)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "strawberry" "blueberry"
+\end{verbatim}
+
+\hypertarget{question-26-data-divisibility}{%
+\paragraph{Question 26: Data
+Divisibility}\label{question-26-data-divisibility}}
+
+Given a numeric vector numbers, create a logical vector divisible\_by\_5
+to indicate numbers that are divisible by 5. Print the numbers that
+satisfy this condition.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{x }\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{11}\NormalTok{)}
+\NormalTok{divisible\_by\_5}\OtherTok{\textless{}{-}}\NormalTok{x[(x }\SpecialCharTok{\%\%} \DecValTok{5}\NormalTok{)}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}
+\FunctionTok{print}\NormalTok{(divisible\_by\_5)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\hypertarget{question-27-bigger-or-smaller}{%
+\paragraph{Question 27: Bigger or
+Smaller?}\label{question-27-bigger-or-smaller}}
+
+You have two numeric vectors vector1 and vector2. Create a logical
+vector comparison to indicate whether each element in vector1 is greater
+than the corresponding element in vector2. Print the comparison results.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{x }\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\NormalTok{x}\SpecialCharTok{\textgreater{}}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+\end{verbatim}
+
+\end{document}

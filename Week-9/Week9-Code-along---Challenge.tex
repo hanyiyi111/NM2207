@@ -1,0 +1,494 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Week-9 Code-along \& Challenge},
+  pdfauthor={HAN YIYI},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Week-9 Code-along \& Challenge}
+\author{HAN YIYI}
+\date{2023-10-18}
+
+\begin{document}
+\maketitle
+
+\hypertarget{input-tidydata}{%
+\subsection{1. Input tidydata}\label{input-tidydata}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.3     v readr     2.1.4
+## v forcats   1.0.0     v stringr   1.5.0
+## v ggplot2   3.4.3     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.0
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tidydata }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+\SpecialCharTok{\textasciitilde{}}\NormalTok{country, }\SpecialCharTok{\textasciitilde{}}\NormalTok{year, }\SpecialCharTok{\textasciitilde{}}\NormalTok{cases, }\SpecialCharTok{\textasciitilde{}}\NormalTok{population,}
+\StringTok{"Afghanistan"}\NormalTok{, }\DecValTok{1999}\NormalTok{, }\DecValTok{745}\NormalTok{, }\DecValTok{19987071}\NormalTok{,}
+\StringTok{"Afghanistan"}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{2666}\NormalTok{, }\DecValTok{20595360}\NormalTok{,}
+\StringTok{"Brazil"}\NormalTok{, }\DecValTok{1999}\NormalTok{, }\DecValTok{37737}\NormalTok{, }\DecValTok{172006362}\NormalTok{,}
+\StringTok{"Brazil"}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{80488}\NormalTok{, }\DecValTok{174504898}\NormalTok{,}
+\StringTok{"China"}\NormalTok{, }\DecValTok{1999}\NormalTok{, }\DecValTok{212258}\NormalTok{, }\DecValTok{1272915272}\NormalTok{,}
+\StringTok{"China"}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{213766}\NormalTok{, }\DecValTok{1280428583}\NormalTok{)}
+\NormalTok{tidydata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   country      year  cases population
+##   <chr>       <dbl>  <dbl>      <dbl>
+## 1 Afghanistan  1999    745   19987071
+## 2 Afghanistan  2000   2666   20595360
+## 3 Brazil       1999  37737  172006362
+## 4 Brazil       2000  80488  174504898
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583
+\end{verbatim}
+
+\hypertarget{input-nontidydata}{%
+\subsection{2. Input nontidydata}\label{input-nontidydata}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nontidydata }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+\SpecialCharTok{\textasciitilde{}}\NormalTok{country,}\SpecialCharTok{\textasciitilde{}}\NormalTok{year,}\SpecialCharTok{\textasciitilde{}}\NormalTok{rate,}
+\StringTok{"Afghanistan"}\NormalTok{, }\DecValTok{1999}\NormalTok{, }\StringTok{"745/19987071"}\NormalTok{,}
+\StringTok{"Afghanistan"}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\StringTok{"2666/20595360"}\NormalTok{,}
+\StringTok{"Brazil"}\NormalTok{, }\DecValTok{1999}\NormalTok{, }\StringTok{"37737/172006362"}\NormalTok{,}
+\StringTok{"Brazil"}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\StringTok{"80488/174504898"}\NormalTok{,}
+\StringTok{"China"}\NormalTok{, }\DecValTok{1999}\NormalTok{, }\StringTok{"212258/1272915272"}\NormalTok{,}
+\StringTok{"China"}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\StringTok{"213766/1280428583"}\NormalTok{)}
+\NormalTok{nontidydata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   country      year rate             
+##   <chr>       <dbl> <chr>            
+## 1 Afghanistan  1999 745/19987071     
+## 2 Afghanistan  2000 2666/20595360    
+## 3 Brazil       1999 37737/172006362  
+## 4 Brazil       2000 80488/174504898  
+## 5 China        1999 212258/1272915272
+## 6 China        2000 213766/1280428583
+\end{verbatim}
+
+\hypertarget{split-rate-into-cases-and-population}{%
+\subsection{3. Split ``rate'' into ``cases'' and
+``population''}\label{split-rate-into-cases-and-population}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nontidydata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   country      year rate             
+##   <chr>       <dbl> <chr>            
+## 1 Afghanistan  1999 745/19987071     
+## 2 Afghanistan  2000 2666/20595360    
+## 3 Brazil       1999 37737/172006362  
+## 4 Brazil       2000 80488/174504898  
+## 5 China        1999 212258/1272915272
+## 6 China        2000 213766/1280428583
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tidieddata }\OtherTok{\textless{}{-}}\NormalTok{ nontidydata }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{separate}\NormalTok{(rate, }\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"cases"}\NormalTok{,}
+\StringTok{"population"}\NormalTok{),}
+\AttributeTok{sep =} \StringTok{"/"}\NormalTok{)}
+\NormalTok{tidieddata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   country      year cases  population
+##   <chr>       <dbl> <chr>  <chr>     
+## 1 Afghanistan  1999 745    19987071  
+## 2 Afghanistan  2000 2666   20595360  
+## 3 Brazil       1999 37737  172006362 
+## 4 Brazil       2000 80488  174504898 
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583
+\end{verbatim}
+
+\hypertarget{put-cases-and-population-under-same-column-measurement}{%
+\subsection{4. Put ``cases'' and ``population'' under same column
+``measurement''}\label{put-cases-and-population-under-same-column-measurement}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newtidieddata }\OtherTok{\textless{}{-}}\NormalTok{ tidieddata }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{pivot\_longer}\NormalTok{(}
+\AttributeTok{cols =}\NormalTok{ cases}\SpecialCharTok{:}\NormalTok{population,}
+\AttributeTok{names\_to =} \StringTok{"measurement"}\NormalTok{,}
+\AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{)}
+\NormalTok{newtidieddata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 12 x 4
+##    country      year measurement value     
+##    <chr>       <dbl> <chr>       <chr>     
+##  1 Afghanistan  1999 cases       745       
+##  2 Afghanistan  1999 population  19987071  
+##  3 Afghanistan  2000 cases       2666      
+##  4 Afghanistan  2000 population  20595360  
+##  5 Brazil       1999 cases       37737     
+##  6 Brazil       1999 population  172006362 
+##  7 Brazil       2000 cases       80488     
+##  8 Brazil       2000 population  174504898 
+##  9 China        1999 cases       212258    
+## 10 China        1999 population  1272915272
+## 11 China        2000 cases       213766    
+## 12 China        2000 population  1280428583
+\end{verbatim}
+
+\hypertarget{input-another-nontidydata}{%
+\subsection{5. Input another
+nontidydata}\label{input-another-nontidydata}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+\SpecialCharTok{\textasciitilde{}}\NormalTok{id, }\SpecialCharTok{\textasciitilde{}}\NormalTok{bp1, }\SpecialCharTok{\textasciitilde{}}\NormalTok{bp2,}
+\StringTok{"A"}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{120}\NormalTok{,}
+\StringTok{"B"}\NormalTok{, }\DecValTok{140}\NormalTok{, }\DecValTok{115}\NormalTok{,}
+\StringTok{"C"}\NormalTok{, }\DecValTok{120}\NormalTok{, }\DecValTok{125}
+\NormalTok{)}
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   id      bp1   bp2
+##   <chr> <dbl> <dbl>
+## 1 A       100   120
+## 2 B       140   115
+## 3 C       120   125
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#put bp1 and bp2 under same column "measurement"}
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{pivot\_longer}\NormalTok{(}
+\AttributeTok{cols =}\NormalTok{ bp1}\SpecialCharTok{:}\NormalTok{bp2,}
+\AttributeTok{names\_to =} \StringTok{"measurement"}\NormalTok{,}
+\AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   id    measurement value
+##   <chr> <chr>       <dbl>
+## 1 A     bp1           100
+## 2 A     bp2           120
+## 3 B     bp1           140
+## 4 B     bp2           115
+## 5 C     bp1           120
+## 6 C     bp2           125
+\end{verbatim}
+
+\hypertarget{from-same-column-to-different-columns-example-1}{%
+\subsection{6. From same column to different columns Example
+1}\label{from-same-column-to-different-columns-example-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newtidieddata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 12 x 4
+##    country      year measurement value     
+##    <chr>       <dbl> <chr>       <chr>     
+##  1 Afghanistan  1999 cases       745       
+##  2 Afghanistan  1999 population  19987071  
+##  3 Afghanistan  2000 cases       2666      
+##  4 Afghanistan  2000 population  20595360  
+##  5 Brazil       1999 cases       37737     
+##  6 Brazil       1999 population  172006362 
+##  7 Brazil       2000 cases       80488     
+##  8 Brazil       2000 population  174504898 
+##  9 China        1999 cases       212258    
+## 10 China        1999 population  1272915272
+## 11 China        2000 cases       213766    
+## 12 China        2000 population  1280428583
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newtidieddata }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from=}\StringTok{"measurement"}\NormalTok{,}
+\AttributeTok{values\_from=}\StringTok{"value"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   country      year cases  population
+##   <chr>       <dbl> <chr>  <chr>     
+## 1 Afghanistan  1999 745    19987071  
+## 2 Afghanistan  2000 2666   20595360  
+## 3 Brazil       1999 37737  172006362 
+## 4 Brazil       2000 80488  174504898 
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583
+\end{verbatim}
+
+\hypertarget{from-same-column-to-different-columns-example-2}{%
+\subsection{7. From same column to different columns Example
+2}\label{from-same-column-to-different-columns-example-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{tribble}\NormalTok{(}
+\SpecialCharTok{\textasciitilde{}}\NormalTok{id, }\SpecialCharTok{\textasciitilde{}}\NormalTok{measurement, }\SpecialCharTok{\textasciitilde{}}\NormalTok{value,}
+\StringTok{"A"}\NormalTok{, }\StringTok{"bp1"}\NormalTok{, }\DecValTok{100}\NormalTok{,}
+\StringTok{"B"}\NormalTok{, }\StringTok{"bp1"}\NormalTok{, }\DecValTok{140}\NormalTok{,}
+\StringTok{"B"}\NormalTok{, }\StringTok{"bp2"}\NormalTok{, }\DecValTok{115}\NormalTok{,}
+\StringTok{"A"}\NormalTok{, }\StringTok{"bp2"}\NormalTok{, }\DecValTok{120}\NormalTok{,}
+\StringTok{"A"}\NormalTok{, }\StringTok{"bp3"}\NormalTok{, }\DecValTok{105}
+\NormalTok{)}
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 3
+##   id    measurement value
+##   <chr> <chr>       <dbl>
+## 1 A     bp1           100
+## 2 B     bp1           140
+## 3 B     bp2           115
+## 4 A     bp2           120
+## 5 A     bp3           105
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{pivot\_wider}\NormalTok{(}
+\AttributeTok{names\_from =}\NormalTok{ measurement,}
+\AttributeTok{values\_from =}\NormalTok{ value}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   id      bp1   bp2   bp3
+##   <chr> <dbl> <dbl> <dbl>
+## 1 A       100   120   105
+## 2 B       140   115    NA
+\end{verbatim}
+
+\hypertarget{week-9-challenge-1}{%
+\section{Week 9 Challenge 1}\label{week-9-challenge-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tidied\_billboard }\OtherTok{\textless{}{-}}\NormalTok{ billboard }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{pivot\_longer}\NormalTok{(}
+\AttributeTok{cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"wk"}\NormalTok{),}
+\AttributeTok{names\_to =} \StringTok{"week"}\NormalTok{,}
+\AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{,}
+\AttributeTok{values\_drop\_na =} \ConstantTok{TRUE}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{mutate}\NormalTok{(}\AttributeTok{week =} \FunctionTok{parse\_number}\NormalTok{(week))}
+\NormalTok{tidied\_billboard}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5,307 x 5
+##    artist  track                   date.entered  week value
+##    <chr>   <chr>                   <date>       <dbl> <dbl>
+##  1 2 Pac   Baby Don't Cry (Keep... 2000-02-26       1    87
+##  2 2 Pac   Baby Don't Cry (Keep... 2000-02-26       2    82
+##  3 2 Pac   Baby Don't Cry (Keep... 2000-02-26       3    72
+##  4 2 Pac   Baby Don't Cry (Keep... 2000-02-26       4    77
+##  5 2 Pac   Baby Don't Cry (Keep... 2000-02-26       5    87
+##  6 2 Pac   Baby Don't Cry (Keep... 2000-02-26       6    94
+##  7 2 Pac   Baby Don't Cry (Keep... 2000-02-26       7    99
+##  8 2Ge+her The Hardest Part Of ... 2000-09-02       1    91
+##  9 2Ge+her The Hardest Part Of ... 2000-09-02       2    87
+## 10 2Ge+her The Hardest Part Of ... 2000-09-02       3    92
+## # i 5,297 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{tidied\_billboard,}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{week,}\AttributeTok{y=}\NormalTok{value, }\AttributeTok{group =}\NormalTok{ track)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{"week"}\NormalTok{,}\AttributeTok{y=}\StringTok{"rank"}\NormalTok{, }
+\AttributeTok{title=}\StringTok{"Ranks Every Week"}\NormalTok{, }
+\AttributeTok{caption=}\StringTok{"Source: tidyverse/ billboard dataset"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Week9-Code-along---Challenge_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\hypertarget{week-9-challenge-2}{%
+\section{Week 9 Challenge 2}\label{week-9-challenge-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{patient\_experience }\OtherTok{\textless{}{-}}\NormalTok{ cms\_patient\_experience }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{pivot\_wider}\NormalTok{(}
+  \AttributeTok{id\_cols =} \FunctionTok{starts\_with}\NormalTok{(}\StringTok{"org"}\NormalTok{),}
+\AttributeTok{names\_from =}\NormalTok{ measure\_cd,}
+\AttributeTok{values\_from =}\NormalTok{ prf\_rate}
+\NormalTok{)}
+\NormalTok{patient\_experience}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 95 x 8
+##    org_pac_id org_nm CAHPS_GRP_1 CAHPS_GRP_2 CAHPS_GRP_3 CAHPS_GRP_5 CAHPS_GRP_8
+##    <chr>      <chr>        <dbl>       <dbl>       <dbl>       <dbl>       <dbl>
+##  1 0446157747 USC C~          63          87          86          57          85
+##  2 0446162697 ASSOC~          59          85          83          63          88
+##  3 0547164295 BEAVE~          49          NA          75          44          73
+##  4 0749333730 CAPE ~          67          84          85          65          82
+##  5 0840104360 ALLIA~          66          87          87          64          87
+##  6 0840109864 REX H~          73          87          84          67          91
+##  7 0840513552 SCL H~          58          83          76          58          78
+##  8 0941545784 GRITM~          46          86          81          54          NA
+##  9 1052612785 COMMU~          65          84          80          58          87
+## 10 1254237779 OUR L~          61          NA          NA          65          NA
+## # i 85 more rows
+## # i 1 more variable: CAHPS_GRP_12 <dbl>
+\end{verbatim}
+
+\end{document}

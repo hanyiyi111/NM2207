@@ -1,0 +1,16 @@
+---
+title: "Code-along 8"
+author: "HAN YIYI"
+date: "2023-10-11"
+output: html_document
+---
+
+```{r, out.height= "400px",out.width= "1000px",echo=FALSE,eval=TRUE,fig.cap="This is App-1"}
+knitr::include_graphics("App-1 Pic1.png") 
+```
+```{r, out.height= "400px",out.width= "1000px",echo=FALSE,eval=TRUE,fig.cap="This is App-1"}
+knitr::include_graphics("App-1 Pic 2.png") 
+```
+```{r, out.height= "400px",out.width= "1000px",echo=FALSE,eval=TRUE,fig.cap="This is App-2"}
+knitr::include_graphics("App-2.png") 
+```

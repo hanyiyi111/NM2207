@@ -1,0 +1,128 @@
+---
+title: "Week-9 Code-along & Challenge"
+author: "HAN YIYI"
+date: "2023-10-18"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## 1. Input tidydata
+```{r, eval=TRUE,echo=TRUE}
+library(tidyverse)
+tidydata <- tribble(
+~country, ~year, ~cases, ~population,
+"Afghanistan", 1999, 745, 19987071,
+"Afghanistan", 2000, 2666, 20595360,
+"Brazil", 1999, 37737, 172006362,
+"Brazil", 2000, 80488, 174504898,
+"China", 1999, 212258, 1272915272,
+"China", 2000, 213766, 1280428583)
+tidydata
+```
+## 2. Input nontidydata
+```{r, eval=TRUE,echo=TRUE}
+nontidydata <- tribble(
+~country,~year,~rate,
+"Afghanistan", 1999, "745/19987071",
+"Afghanistan", 2000, "2666/20595360",
+"Brazil", 1999, "37737/172006362",
+"Brazil", 2000, "80488/174504898",
+"China", 1999, "212258/1272915272",
+"China", 2000, "213766/1280428583")
+nontidydata
+```
+## 3. Split "rate" into "cases" and "population"
+```{r, eval=TRUE,echo=TRUE}
+nontidydata
+tidieddata <- nontidydata %>%
+separate(rate, into = c("cases",
+"population"),
+sep = "/")
+tidieddata
+```
+## 4. Put "cases" and "population" under same column "measurement"
+```{r, eval=TRUE,echo=TRUE}
+newtidieddata <- tidieddata %>%
+pivot_longer(
+cols = cases:population,
+names_to = "measurement",
+values_to = "value"
+)
+newtidieddata
+```
+## 5. Input another nontidydata
+```{r, eval=TRUE,echo=TRUE}
+df <- tribble(
+~id, ~bp1, ~bp2,
+"A", 100, 120,
+"B", 140, 115,
+"C", 120, 125
+)
+df
+
+#put bp1 and bp2 under same column "measurement"
+df %>%
+pivot_longer(
+cols = bp1:bp2,
+names_to = "measurement",
+values_to = "value"
+)
+```
+## 6. From same column to different columns Example 1
+```{r, eval=TRUE,echo=TRUE}
+newtidieddata
+newtidieddata %>%
+pivot_wider(names_from="measurement",
+values_from="value")
+```
+## 7. From same column to different columns Example 2
+```{r, eval=TRUE,echo=TRUE}
+df <- tribble(
+~id, ~measurement, ~value,
+"A", "bp1", 100,
+"B", "bp1", 140,
+"B", "bp2", 115,
+"A", "bp2", 120,
+"A", "bp3", 105
+)
+df
+
+df %>%
+pivot_wider(
+names_from = measurement,
+values_from = value
+)
+```
+
+# Week 9 Challenge 1
+```{r, eval=TRUE,echo=TRUE}
+tidied_billboard <- billboard %>%
+pivot_longer(
+cols = starts_with("wk"),
+names_to = "week",
+values_to = "value",
+values_drop_na = TRUE
+) %>%
+mutate(week = parse_number(week))
+tidied_billboard
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(data=tidied_billboard,mapping=aes(x=week,y=value, group = track)) + 
+  geom_line() + 
+  labs(x="week",y="rank", 
+title="Ranks Every Week", 
+caption="Source: tidyverse/ billboard dataset")
+```
+
+# Week 9 Challenge 2
+```{r, eval=TRUE,echo=TRUE}
+patient_experience <- cms_patient_experience %>%
+pivot_wider(
+  id_cols = starts_with("org"),
+names_from = measure_cd,
+values_from = prf_rate
+)
+patient_experience
+```

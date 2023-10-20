@@ -1,0 +1,8 @@
+# Load R packages for data science
+library(tidyverse)
+# Data in starwars data-set
+starwars
+# Salient features of the data-set
+?starwars
+# Catch a glimpse starwars data-set
+glimpse(starwars)
