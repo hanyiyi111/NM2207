@@ -1,0 +1,54 @@
+---
+title: "Data Document"
+author: "HAN YIYI"
+date: "2023-10-20"
+output: html_document
+---
+
+### (1) Topic: Mental health disorders
+
+Analyze data related to the the trend of mental health disorders and measures to mitigate them.
+
+### (2) Data Sources: 
+Global Trends in Mental Health Disorder.csv
+
+Student Mental Health. csv
+
+## Week 10
+
+### (1) Question
+Is mental health disorder a big threat to us?
+
+### (2) Why is this important?
+First, mental health disorders can damage physical health, according to a research published in JAMA has shown that poor mental health is linked to a higher risk of physical health problems, including heart disease, diabetes, and reduced life expectancy.
+
+Second, mental health disorders are omnipresent in our lives because WHO reports that mental health disorders are common and can affect anyone, regardless of age, gender, or socioeconomic status.
+
+Third, mental health disorders can cause huge economic burdern, as evidenced by a study by the World Economic Forum, mental health conditions are estimated to cost the global economy $16 trillion by 2030.
+
+### (3) Key Rows and Columns
+In "Global Trends in Mental Health Disorder.csv":
+Rows: All the rows
+Columns:"Entity", "Year", "Eating.disorders...."
+
+### (4) Challenge and Solution
+Challenge: There are many missing values for most of the columns of disorders except for "Eating.disorders....". If I remove all the rows with missing values, many important information like "Year" and "Entity" would be affected too.
+
+Solution: I choose "Eating.disorders...." as the only column of disorders.
+
+## Week 11
+### (1) Visualizations
+I will use line graphs to show the relation between "Eating.disorders...." and "year" to show the trend of eating disorders in different countries over years. This could be one of the trends in mental health disorder in general.
+
+### (2) How to make it interactive
+I will use the "SelectInput" feature in shiny to provide a row of labels representing different countries. Viewers can click on those labels like "the US" "the UK" "Germany" to see trends in specific countries they want to explore.
+
+### (3) Concepts taught and self-learnt
+
+```{r}
+df <- data.frame("Concepts" = c("data cleaning", "ggplot visualization", "Shiny App", "select-input feature"), 
+                 "Weeks" = c("week 1", "week 7", "week 8", ""))
+df
+```
+### (4) Challenge and solution
+In order to realize my imagined realizations of the data, I need a function to create interactive buttons. But this function is not taught in class. I searched on Google and consulted TA and finally found the "SelectInput" feature in Shiny.
