@@ -20,11 +20,11 @@ Student Mental Health. csv
 Is mental health disorder a big threat to us?
 
 ### (2) Why is this important?
-First, mental health disorders can damage physical health, according to a research published in JAMA has shown that poor mental health is linked to a higher risk of physical health problems, including heart disease, diabetes, and reduced life expectancy.
+First, mental health disorders can damage physical health, according to a research published in JAMA has shown that poor mental health is linked to a higher risk of physical health problems, including heart disease, diabetes, and reduced life expectancy (Tian et al., 2023).
 
 Second, mental health disorders are omnipresent in our lives because WHO reports that mental health disorders are common and can affect anyone, regardless of age, gender, or socioeconomic status.
 
-Third, mental health disorders can cause huge economic burdern, as evidenced by a study by the World Economic Forum, mental health conditions are estimated to cost the global economy $16 trillion by 2030.
+Third, mental health disorders can cause huge economic burdern, as evidenced by a study by the World Economic Forum, mental health conditions are estimated to cost the global economy $16 trillion by 2030 (Ministerie van Algemene Zaken, 2023).
 
 ### (3) Key Rows and Columns
 In "Global Trends in Mental Health Disorder.csv":
@@ -63,7 +63,7 @@ Challenge 2: The graph was not showing correctly. The "str()" function shows tha
 
 Solution 2: Use mutate ( = as.numeric()) for explicit coercion.
 
-## Week 13
+## Week 13: Final Submission
 
 ### (1) What is the theme of your data story?
 The theme of the data story is centered around "The seriousness of mental health issues around the world." Throughout the project, the focus was on analyzing and presenting data to emphasize the global prevalence of mental health disorders. The narrative woven through the data story underscores the urgency of addressing mental health issues on a global scale, aiming to raise awareness, reduce stigma, and encourage early intervention and support.
@@ -72,11 +72,11 @@ The theme of the data story is centered around "The seriousness of mental health
 
 **Impact on Physical Health:**
 
-As highlighted in Week 10, research published in JAMA reveals a significant link between poor mental health and various physical health problems, including heart disease and diabetes. Recognizing and addressing mental health issues is vital to promoting overall well-being and preventing associated physical health complications.
+As highlighted in Week 10, research published in JAMA reveals a significant link between poor mental health and various physical health problems, including heart disease and diabetes. Recognizing and addressing mental health issues is vital to promoting overall well-being and preventing associated physical health complications (Tian et al., 2023).
 
 **Ubiquity of Mental Health Disorders:** 
 
-The World Health Organization (WHO) emphasizes that mental health disorders are pervasive and can affect anyone, irrespective of age, gender, or socioeconomic status. Acknowledging the widespread nature of these disorders is essential for fostering empathy, understanding, and destigmatizing mental health challenges.
+The World Health Organization (WHO) emphasizes that mental health disorders are pervasive and can affect anyone, irrespective of age, gender, or socioeconomic status (World Health Organization: WHO, 2019). Acknowledging the widespread nature of these disorders is essential for fostering empathy, understanding, and destigmatizing mental health challenges.
 
 **Economic Burden:**
 
@@ -123,7 +123,7 @@ Depiction in Plots: The use of the "SelectInput" feature in Shiny creates intera
 
 ### (5) How did you implement this entire project? Were there any new concepts that you learnt to implement some aspects of it?
 
-I firstly obtained the dataset from data.world. I made several attempts to clean the data but encountered some challenges. For example, the type of some columns is not "numeric", and there were multiple datasets in the same file when compiled by the author. After solving these problems, I tried to use quarto and shiny app to create the page for visualization.
+I firstly obtained the dataset from kaggle.com, which is obtained from Atim (@amitd) at data.world. I made several attempts to clean the data but encountered some challenges. For example, the type of some columns is not "numeric", and there were multiple datasets in the same file when compiled by the author. After solving these problems, I tried to use quarto and shiny app to create the page for visualization.
 
 There were many new concepts I needed to learn to achieve the effects I wanted to get. I learned how to use "Select-Input" function in shiny app to make the line graphs more interactive and saved a lot of space. I also followed the guide from Quarto to add certain features including callout blocks, margin pictures, inserting videos and title banner, etc.
 
@@ -133,7 +133,7 @@ There were many new concepts I needed to learn to achieve the effects I wanted t
 
 Identified the topic of mental health disorders
 
-Obtained datasets: "Global Trends in Mental Health Disorder.csv"
+Obtained datasets: "Global Trends in Mental Health Disorder.csv" (I finally it as data_disorder.xlsx)
 
 Explored data sources to understand available variables and potential insights.
 
@@ -152,3 +152,13 @@ Implemented the "SelectInput" feature in Shiny for interactive exploration.
 Gained insights into ggplot visualization, Shiny App development, and the "SelectInput" feature.
 
  (939 words)
+ 
+**References**
+
+Global Trends in Mental health Disorder. (2022, December 14). Kaggle. https://www.kaggle.com/datasets/thedevastator/uncover-global-trends-in-mental-health-disorder
+
+Ministerie van Algemene Zaken. (2023, November 10). MHPSS worldwide: facts and figures. Mental Health and Psychosocial Support in Crisis Situations | Government.nl. https://www.government.nl/topics/mhpss/mhpss-worldwide-facts-and-figures#:~:text=According%20to%20the%20WEF%2C%20poor,%2D%20and%20middle%2Dincome%20countries.
+
+Tian, Y., Di Biase, M. A., Mosley, P., Lupton, M. K., Xia, Y., Fripp, J., Breakspear, M., Cropley, V., & Zalesky, A. (2023). Evaluation of Brain-Body health in individuals with common neuropsychiatric disorders. JAMA Psychiatry, 80(6), 567. https://doi.org/10.1001/jamapsychiatry.2023.0791
+
+World Health Organization: WHO. (2019, December 19). Mental health. https://www.who.int/health-topics/mental-health#tab=tab_1

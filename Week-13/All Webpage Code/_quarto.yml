@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: Yiyi's Page
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - Courses.qmd
+      - Folders.qmd
+      - Visualizations.qmd
+
+format:
+  html:
+    theme: litera
+    css: styles.css
+    toc: true
+
+editor: visual
+
