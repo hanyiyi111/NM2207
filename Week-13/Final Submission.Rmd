@@ -1,0 +1,154 @@
+---
+title: "Final Submission"
+author: "HAN YIYI"
+date: "2023-11-15"
+output: html_document
+---
+## Week 9
+### (1) Topic: Mental health disorders
+
+Analyze data related to the the trend of mental health disorders and measures to mitigate them.
+
+### (2) Data Sources: 
+Global Trends in Mental Health Disorder.csv
+
+Student Mental Health. csv
+
+## Week 10
+
+### (1) Question
+Is mental health disorder a big threat to us?
+
+### (2) Why is this important?
+First, mental health disorders can damage physical health, according to a research published in JAMA has shown that poor mental health is linked to a higher risk of physical health problems, including heart disease, diabetes, and reduced life expectancy.
+
+Second, mental health disorders are omnipresent in our lives because WHO reports that mental health disorders are common and can affect anyone, regardless of age, gender, or socioeconomic status.
+
+Third, mental health disorders can cause huge economic burdern, as evidenced by a study by the World Economic Forum, mental health conditions are estimated to cost the global economy $16 trillion by 2030.
+
+### (3) Key Rows and Columns
+In "Global Trends in Mental Health Disorder.csv":
+Rows: All the rows
+Columns:"Entity", "Year", "Eating.disorders...."
+
+### (4) Challenge and Solution
+Challenge: There are many missing values for most of the columns of disorders except for "Eating.disorders....". If I remove all the rows with missing values, many important information like "Year" and "Entity" would be affected too.
+
+Solution: I choose "Eating.disorders...." as the only column of disorders.
+
+## Week 11
+### (1) Visualizations
+I will use line graphs to show the relation between "Eating.disorders...." and "year" to show the trend of eating disorders in different countries over years. This could be one of the trends in mental health disorder in general.
+
+### (2) How to make it interactive
+I will use the "SelectInput" feature in shiny to provide a row of labels representing different countries. Viewers can click on those labels like "the US" "the UK" "Germany" to see trends in specific countries they want to explore.
+
+### (3) Concepts taught and self-learnt
+
+```{r}
+df <- data.frame("Concepts" = c("data cleaning", "ggplot visualization", "Shiny App", "select-input feature"), 
+                 "Weeks" = c("week 1", "week 7", "week 8", ""))
+df
+```
+### (4) Challenge and solution
+In order to realize my imagined realizations of the data, I need a function to create interactive buttons. But this function is not taught in class. I searched on Google and consulted TA and finally found the "SelectInput" feature in Shiny.
+
+## Week 12
+### Challenges & Errors
+Challenge 1: When I was creating the line graph, I found that there are many sharp drops in certain years, and make the graph seem very strange. It turned out that there are two sets of data in the csv. file I downloaded. One of the data records the percentage of patients while another one records the population of patients. Hence, the numbers for data 1 are very small and numbers for data 2 are very big. So I need to get rid of one dataset.
+
+Solution 1: Change csv. into xlsx. file and use the "read_excel" funtion to select the range of data from "A1" to "K6469", which is the range of data 1.
+
+Challenge 2: The graph was not showing correctly. The "str()" function shows that "Year" and "Eating disorder (%)" are characters, not numerics.
+
+Solution 2: Use mutate ( = as.numeric()) for explicit coercion.
+
+## Week 13
+
+### (1) What is the theme of your data story?
+The theme of the data story is centered around "The seriousness of mental health issues around the world." Throughout the project, the focus was on analyzing and presenting data to emphasize the global prevalence of mental health disorders. The narrative woven through the data story underscores the urgency of addressing mental health issues on a global scale, aiming to raise awareness, reduce stigma, and encourage early intervention and support.
+
+### (2) Why is it important to address this question?
+
+**Impact on Physical Health:**
+
+As highlighted in Week 10, research published in JAMA reveals a significant link between poor mental health and various physical health problems, including heart disease and diabetes. Recognizing and addressing mental health issues is vital to promoting overall well-being and preventing associated physical health complications.
+
+**Ubiquity of Mental Health Disorders:** 
+
+The World Health Organization (WHO) emphasizes that mental health disorders are pervasive and can affect anyone, irrespective of age, gender, or socioeconomic status. Acknowledging the widespread nature of these disorders is essential for fostering empathy, understanding, and destigmatizing mental health challenges.
+
+**Economic Burden:**
+
+The project draws attention to the economic burden imposed by mental health conditions, as indicated by a study from the World Economic Forum. The projected global cost of mental health conditions reaching $16 trillion by 2030 underscores the economic significance of addressing mental health issues. By doing so, we can potentially mitigate these economic consequences.
+
+**Awareness and Stigma Reduction:**
+
+By exploring and presenting global trends in mental health, the data story seeks to raise awareness about the prevalence and impact of mental health disorders. This increased awareness contributes to reducing the stigma attached to mental illness, fostering an environment where individuals are more likely to seek help and support.
+
+**Early Intervention:**
+
+Understanding the seriousness of mental health issues enables individuals, communities, and policymakers to implement early intervention strategies. Early detection and intervention can significantly improve outcomes for individuals struggling with mental health challenges, preventing the escalation of these issues and promoting overall mental well-being.
+
+### (3) Why do you think the data sources that you have curated can help you answer the question?
+
+The dataset provides information about the percentage of people suffering from different mental disorders around the world, from 1990 to 2017. It will help people know more about the status quo of mental health in diferent regions and countries.
+
+**Comprehensive Global Coverage:** 
+
+The dataset provides a comprehensive global perspective on mental health trends. By encompassing data from different countries and regions, it enables a holistic understanding of the prevalence and patterns of mental health disorders on a worldwide scale. This global coverage is essential for addressing the question in a broad and inclusive manner.
+
+**Longitudinal Data:**
+
+The inclusion of data spanning from 1990 to 2017 allows for the examination of longitudinal trends in mental health. This temporal dimension is crucial for identifying patterns, changes, and potential shifts in the seriousness of mental health issues over time. It adds depth to the analysis and enhances the ability to draw meaningful conclusions.
+
+**Potential for Comparison:**
+
+The diverse nature of the data sources allows for meaningful comparisons between different regions, countries, and demographic groups. Such comparisons contribute to a nuanced narrative, highlighting variations and similarities in the seriousness of mental health issues across diverse contexts.
+
+
+### (4) What are the insights from the data and how are they depicted in plots?
+
+**Insight 1:** 
+
+The data reveals a general increasing trend in the prevalence of mental health disorders across various regions from 1990 to 2017. This shows that mental disorders are commonly seen and is becoming more of a threat to us.
+
+Depiction in Plots: Line graphs visually represent the upward trajectory of mental health disorders over the years. Each line corresponds to a specific region or country, emphasizing the consistent rise in the percentage of individuals affected.
+
+**Insight 2:** 
+
+Enabling interactivity allows viewers to explore trends in specific countries, and find similarities and differences. Some relevance can be discovered, such as differences between developed and developing countries.
+
+Depiction in Plots: The use of the "SelectInput" feature in Shiny creates interactive elements. Viewers can click on labels representing different countries and regions to dynamically view trends specific to their chosen region.
+
+### (5) How did you implement this entire project? Were there any new concepts that you learnt to implement some aspects of it?
+
+I firstly obtained the dataset from data.world. I made several attempts to clean the data but encountered some challenges. For example, the type of some columns is not "numeric", and there were multiple datasets in the same file when compiled by the author. After solving these problems, I tried to use quarto and shiny app to create the page for visualization.
+
+There were many new concepts I needed to learn to achieve the effects I wanted to get. I learned how to use "Select-Input" function in shiny app to make the line graphs more interactive and saved a lot of space. I also followed the guide from Quarto to add certain features including callout blocks, margin pictures, inserting videos and title banner, etc.
+
+**Flow of my project**
+
+1. Data Collection and Exploration
+
+Identified the topic of mental health disorders
+
+Obtained datasets: "Global Trends in Mental Health Disorder.csv"
+
+Explored data sources to understand available variables and potential insights.
+
+2. Data Cleaning and Selection
+
+Faced challenges with missing values in the dataset.
+
+Learned and applied data cleaning techniques to ensure data integrity.
+
+3. Visualization and Interactivity
+
+Utilized ggplot for line graphs to depict the trends in mental health disorders.
+
+Implemented the "SelectInput" feature in Shiny for interactive exploration.
+
+Gained insights into ggplot visualization, Shiny App development, and the "SelectInput" feature.
+
+ (939 words)
